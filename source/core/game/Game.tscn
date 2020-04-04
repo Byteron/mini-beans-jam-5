@@ -38,6 +38,7 @@ position = Vector2( 512, 600 )
 scenes = [ ExtResource( 9 ) ]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 580 )
@@ -59,7 +60,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
-layer = 100
+layer = 1
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxForeground"]
 position = Vector2( 0, 580 )
@@ -71,7 +72,9 @@ texture = ExtResource( 10 )
 centered = false
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
+layer = 5
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
+layer = 10
 [connection signal="launched" from="Launcher" to="." method="_on_Launcher_launched"]
 [connection signal="upgrade_bought" from="Shop" to="." method="_on_Shop_upgrade_bought"]
