@@ -9,6 +9,9 @@ func start() -> void:
 	_on_SpawnTimer_timeout()
 
 func _on_SpawnTimer_timeout() -> void:
+	if not scenes:
+		return
+
 	randomize()
 	var scene : PackedScene = scenes[randi() % scenes.size()]
 	var instance = scene.instance() as Obstacle

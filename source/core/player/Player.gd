@@ -4,8 +4,8 @@ class_name Player
 var force := Vector2()
 var velocity := Vector2()
 
-export var gravity_scale = 1.0
-export var friction = 0.1
+var gravity := 98
+var friction = 0.1
 
 export var disabled = true
 
@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	if disabled:
 		return
 
-	velocity.y += Global.GRAVITY * gravity_scale
+	velocity.y += gravity * delta
 	global_position += (velocity + force).linear_interpolate(Vector2(), friction) * delta
 
 func apply_impact(impact: Vector2) -> void:

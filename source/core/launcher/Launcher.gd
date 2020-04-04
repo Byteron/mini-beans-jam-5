@@ -6,9 +6,10 @@ signal launched
 var _target : Player
 var velocity : Vector2
 
+var force := 0
+
 export var target : NodePath
 
-export var force := 1000
 
 onready var sling := $Sling as Line2D
 
