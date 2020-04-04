@@ -8,18 +8,20 @@ export var friction := 0.0
 export var coin_boost := 0
 export var max_charge := 0
 
-export(Array, Resource) var upgrades := []
-
 onready var launcher := $Launcher as Launcher
 onready var player := $Player as Player
 onready var ground := $Ground as Area2D
 onready var slider := $Slider as Node2D
 onready var spawner := $Slider/Spawner as Spawner
 onready var hud := $HUD as HUD
+onready var shop := $Shop as Shop
 
 func _ready() -> void:
 	_apply_stats()
-	hud.update_stats(gravity, draw_force, friction, coin_boost, upgrades)
+	hud.update_stats(gravity, draw_force, friction, coin_boost, Global.bought_upgrades)
+	shop.update_points()
+	print(Global.upgrades)
+	print(Global.bought_upgrades)
 
 func _physics_process(delta: float) -> void:
 	ground.global_position.x = player.global_position.x
@@ -35,7 +37,7 @@ func _apply_stats() -> void:
 	var coin_boost_bonus := 0
 	var max_charge_mod := 1.0
 
-	for upgrade in upgrades:
+	for upgrade in Global.bought_upgrades:
 		gravity_mod += upgrade.gravity
 		draw_force_mod += upgrade.draw_force
 		friction_mod += upgrade.friction
@@ -55,6 +57,6 @@ func _on_Launcher_launched() -> void:
 	spawner.start()
 
 func _on_Shop_upgrade_bought(upgrade: Upgrade) -> void:
-	upgrades.append(upgrade)
+	Global.bought_upgrades.append(upgrade)
 	_apply_stats()
-	hud.update_stats(gravity, draw_force, friction, coin_boost, upgrades)
+	hud.update_stats(gravity, draw_force, friction, coin_boost, Global.bought_upgrades)
