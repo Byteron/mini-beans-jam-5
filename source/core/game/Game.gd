@@ -20,6 +20,7 @@ func _ready() -> void:
 	_apply_stats()
 	hud.update_stats(gravity, draw_force, friction, coin_boost, Global.bought_upgrades)
 	shop.update_points()
+	shop.open()
 	print(Global.upgrades)
 	print(Global.bought_upgrades)
 
@@ -55,6 +56,7 @@ func update_current_values():
 func _on_Launcher_launched() -> void:
 	launched = true
 	spawner.start()
+	shop.close()
 
 func _on_Shop_upgrade_bought(upgrade: Upgrade) -> void:
 	Global.bought_upgrades.append(upgrade)

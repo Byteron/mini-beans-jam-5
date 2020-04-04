@@ -35,11 +35,11 @@ func _ready() -> void:
 	_load_shop()
 
 func open() -> void:
-	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin - 300, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
 
 func close() -> void:
-	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin + 300, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
 
 func update_points() -> void:
