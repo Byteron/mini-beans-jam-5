@@ -6,7 +6,7 @@ export var gravity := 0
 export var draw_force := 0
 export var friction := 0.0
 export var coin_boost := 0
-
+export var max_charge := 0
 
 export(Array, Resource) var upgrades := []
 
@@ -14,7 +14,6 @@ onready var launcher := $Launcher as Launcher
 onready var player := $Player as Player
 onready var ground := $Ground as Area2D
 onready var slider := $Slider as Node2D
-onready var camera := $Slider/Camera as Camera2D
 onready var spawner := $Slider/Spawner as Spawner
 onready var hud := $HUD as HUD
 
@@ -27,7 +26,6 @@ func _physics_process(delta: float) -> void:
 
 	if launched:
 		slider.global_position.x = max(player.global_position.x, slider.global_position.x)
-		camera.position.y = (player.global_position.y - slider.global_position.y)
 		update_current_values()
 
 func _apply_stats() -> void:
@@ -35,6 +33,7 @@ func _apply_stats() -> void:
 	var draw_force_mod := 1.0
 	var friction_mod := 1.0
 	var coin_boost_bonus := 0
+	var max_charge_mod := 1.0
 
 	for upgrade in upgrades:
 		gravity_mod += upgrade.gravity
@@ -44,6 +43,7 @@ func _apply_stats() -> void:
 
 	player.gravity = gravity * gravity_mod
 	launcher.force = draw_force * draw_force_mod
+	launcher.max_charge = max_charge * max_charge_mod
 	player.friction = friction * friction_mod
 	Global.coin_boost = coin_boost + coin_boost_bonus
 

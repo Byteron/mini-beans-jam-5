@@ -13,6 +13,8 @@ var height_multiplier = 0
 
 export var disabled = true
 
+onready var camera := $Camera2D as Camera2D
+
 func _physics_process(delta: float) -> void:
 	if disabled:
 		return
@@ -23,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	global_position += change_this_frame
 	speed = change_this_frame.x
 	calculate_rotation(speed)
+	#calculate_camera_zoom(speed)
 	height = 55 + (global_position.y * -0.1)
 	calculate_points(change_this_frame)
 
@@ -45,6 +48,11 @@ func calculate_rotation(speed: float):
 	var speedFactor = min(1, pow((1 / (500 / speed)),2))
 	var degreesToRotate = lerp(0, 720, speedFactor)
 	rotate(deg2rad(degreesToRotate))
+
+func calculate_camera_zoom(speed: float):
+	var speedFactor = min(1, pow((1 / (70 / speed)),2))
+	var zoom = lerp(1, 10, speedFactor)
+	camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
 
 func calculate_points(change_this_frame: Vector2):
 	var multiplier : float = 1
