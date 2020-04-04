@@ -25,3 +25,27 @@ margin_bottom = 32.0
 margin_top = 36.0
 margin_right = 40.0
 margin_bottom = 50.0
+
+[node name="CurrentValues" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 50.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentSpeed" type="Label" parent="CurrentValues"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="CurrentHeight" type="Label" parent="CurrentValues"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 32.0
+
+[node name="PointsThisRun" type="Label" parent="CurrentValues"]
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 50.0

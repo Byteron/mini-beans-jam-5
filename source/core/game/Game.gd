@@ -12,6 +12,7 @@ onready var launcher := $Launcher as Launcher
 onready var player := $Player as Player
 onready var ground := $Floor as Area2D
 onready var slider := $Slider as Node2D
+onready var camera := $Slider/Camera as Camera2D
 onready var spawner := $Slider/Spawner as Spawner
 onready var hud := $HUD as HUD
 
@@ -24,6 +25,8 @@ func _physics_process(delta: float) -> void:
 
 	if launched:
 		slider.global_position.x = max(player.global_position.x, slider.global_position.x)
+		camera.position.y = (player.global_position.y - slider.global_position.y)
+		update_current_values()
 
 func _apply_stats() -> void:
 	var gravity_mod := 1.0
@@ -38,6 +41,9 @@ func _apply_stats() -> void:
 	player.gravity = gravity * gravity_mod
 	launcher.force = draw_force * draw_force_mod
 	player.friction = friction * friction_mod
+
+func update_current_values():
+	hud.update_current_values(player.speed, player.height, player.points)
 
 func _on_Launcher_launched() -> void:
 	launched = true

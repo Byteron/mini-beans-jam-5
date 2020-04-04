@@ -4,8 +4,11 @@ class_name Player
 var force := Vector2()
 var velocity := Vector2()
 
-var gravity := 98
-var friction = 0.1
+var gravity := 100 #vertical decay
+var friction = 100 #horizontal decay
+var speed = 0
+var height = 0
+var points = 0
 
 export var disabled = true
 
@@ -14,7 +17,12 @@ func _physics_process(delta: float) -> void:
 		return
 
 	velocity.y += gravity * delta
-	global_position += (velocity + force).linear_interpolate(Vector2(), friction) * delta
+	velocity.x = max(0, velocity.x) - friction * delta
+	var change_this_frame : Vector2 = (velocity + force) * delta
+	global_position += change_this_frame
+	speed = change_this_frame.x
+	height = 55 + (global_position.y * -0.1)
+	points += (change_this_frame.x * max(1, height * 0.3)) * 0.01
 
 func apply_impact(impact: Vector2) -> void:
 	velocity += impact
