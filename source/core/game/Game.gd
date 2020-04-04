@@ -2,6 +2,7 @@ extends Node2D
 
 var launched := false
 
+export var start_points := 1000
 export var gravity := 0
 export var draw_force := 0
 export var friction := 0.0
@@ -16,10 +17,13 @@ onready var ground := $Ground as Area2D
 onready var slider := $Slider as Node2D
 onready var spawner := $Slider/Spawner as Spawner
 onready var hud := $HUD as HUD
+onready var shop := $Shop as Shop
 
 func _ready() -> void:
 	_apply_stats()
 	hud.update_stats(gravity, draw_force, friction, coin_boost, upgrades)
+	Global.points = start_points
+	shop.update_points()
 
 func _physics_process(delta: float) -> void:
 	ground.global_position.x = player.global_position.x

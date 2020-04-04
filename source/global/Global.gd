@@ -12,21 +12,25 @@ func _ready() -> void:
 
 	_create_upgrade({
 		"name": "Coin Boost 1",
+		"cost": 1000,
 		"coin_boost": 100
 	})
 
 	_create_upgrade({
 		"name": "Coin Boost 2",
+		"cost": 5000,
 		"coin_boost": 200
 	})
 
 	_create_upgrade({
 		"name": "Low Gravity 1",
+		"cost": 10000,
 		"gravity": -0.1
 	})
 
 	_create_upgrade({
 		"name": "Draw Force 2",
+		"cost": 20000,
 		"draw_force": 0.5
 	})
 
@@ -35,6 +39,9 @@ func _create_upgrade(dict: Dictionary) -> void:
 
 	if dict.has("name"):
 		upgrade.name = dict.name
+
+	if dict.has("cost"):
+		upgrade.cost = dict.cost
 
 	if dict.has("draw_force"):
 		upgrade.draw_force = dict.draw_force
