@@ -1,13 +1,18 @@
 extends Node2D
 class_name Player
 
-export var gravity_scale = 1.0
-export var friction = 0.1
-
 var force := Vector2()
 var velocity := Vector2()
 
+export var gravity_scale = 1.0
+export var friction = 0.1
+
+export var disabled = true
+
 func _physics_process(delta: float) -> void:
+	if disabled:
+		return
+
 	velocity.y += Global.GRAVITY * gravity_scale
 	global_position += (velocity + force).linear_interpolate(Vector2(), friction) * delta
 

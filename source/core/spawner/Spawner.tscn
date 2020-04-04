@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/core/spawner/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://source/core/obstacles/Gronk.tscn" type="PackedScene" id=2]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2( 572.125, -56.4759 )
+script = ExtResource( 1 )
+scenes = [ ExtResource( 2 ) ]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

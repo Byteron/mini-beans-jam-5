@@ -9,6 +9,26 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Obstacle",
+"class": "Gronk",
+"language": "GDScript",
+"path": "res://source/core/obstacles/Gronk.gd"
+}, {
+"base": "Obstacle",
+"class": "Ground",
+"language": "GDScript",
+"path": "res://source/core/obstacles/Floor.gd"
+}, {
+"base": "Node2D",
+"class": "Launcher",
+"language": "GDScript",
+"path": "res://source/core/launcher/Launcher.gd"
+}, {
+"base": "Area2D",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://source/core/obstacles/Obstacle.gd"
+}, {
 "base": "Node2D",
 "class": "Player",
 "language": "GDScript",
@@ -18,10 +38,20 @@ _global_script_classes=[ {
 "class": "SceneLoader",
 "language": "GDScript",
 "path": "res://addons/scene_manager/source/SceneLoader.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://source/core/spawner/Spawner.gd"
 } ]
 _global_script_class_icons={
+"Gronk": "",
+"Ground": "",
+"Launcher": "",
+"Obstacle": "",
 "Player": "",
-"SceneLoader": ""
+"SceneLoader": "",
+"Spawner": ""
 }
 
 [application]
