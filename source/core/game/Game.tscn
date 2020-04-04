@@ -18,29 +18,22 @@ script = ExtResource( 2 )
 gravity = 1000
 draw_force = 100
 friction = 120.0
+max_charge = 250
 upgrades = [ ExtResource( 7 ) ]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 66.2649, 519 )
+position = Vector2( 455.458, 366.76 )
+disabled = true
 
 [node name="Launcher" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 396 )
 target = NodePath("../Player")
 
 [node name="Ground" parent="." instance=ExtResource( 4 )]
+position = Vector2( 20, 770 )
 
 [node name="Slider" type="Node2D" parent="."]
 position = Vector2( 512, 600 )
-
-[node name="Camera" type="Camera2D" parent="Slider"]
-position = Vector2( -27.3982, -54.2384 )
-current = true
-limit_bottom = 650
-smoothing_enabled = true
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
 
 [node name="Spawner" parent="Slider" instance=ExtResource( 6 )]
 scenes = [ ExtResource( 9 ) ]
@@ -58,17 +51,23 @@ centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 580 )
+motion_scale = Vector2( 0.7, 1 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 0, 50 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxForeground"]
 position = Vector2( 0, 580 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite" type="Sprite" parent="ParallaxForeground/ParallaxLayer3"]
+position = Vector2( 0, 100 )
 texture = ExtResource( 10 )
 centered = false
 
