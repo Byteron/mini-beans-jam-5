@@ -48,7 +48,7 @@ func _apply_stats() -> void:
 	Global.coin_boost = coin_boost + coin_boost_bonus
 
 func update_current_values():
-	hud.update_current_values(player.speed, player.height, player.points)
+	hud.update_current_values(player.speed, player.height, player.height_multiplier, player.points)
 
 func _on_Launcher_launched() -> void:
 	launched = true

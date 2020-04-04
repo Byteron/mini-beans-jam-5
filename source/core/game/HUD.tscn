@@ -50,7 +50,15 @@ margin_top = 18.0
 margin_right = 40.0
 margin_bottom = 32.0
 
-[node name="PointsThisRun" type="Label" parent="CurrentValues"]
+[node name="HeightMultiplier" type="Label" parent="CurrentValues"]
 margin_top = 36.0
 margin_right = 40.0
 margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsThisRun" type="Label" parent="CurrentValues"]
+margin_top = 54.0
+margin_right = 40.0
+margin_bottom = 68.0

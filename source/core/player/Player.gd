@@ -9,6 +9,7 @@ var friction = 100 #horizontal decay
 var speed = 0
 var height = 0
 var points = 0
+var height_multiplier = 0
 
 export var disabled = true
 
@@ -21,8 +22,9 @@ func _physics_process(delta: float) -> void:
 	var change_this_frame : Vector2 = (velocity + force) * delta
 	global_position += change_this_frame
 	speed = change_this_frame.x
+	calculate_rotation(speed)
 	height = 55 + (global_position.y * -0.1)
-	points += (change_this_frame.x * max(1, height * 0.3)) * 0.01
+	calculate_points(change_this_frame)
 
 func apply_impact(impact: Vector2) -> void:
 	velocity += impact
@@ -35,3 +37,15 @@ func reset_force() -> void:
 
 func reset_velocity() -> void:
 	velocity = Vector2(0, 0)
+
+func calculate_rotation(speed: float):
+	var speedFactor = min(1, pow((1 / (500 / speed)),2))
+	var degreesToRotate = lerp(0, 720, speedFactor)
+	rotate(deg2rad(degreesToRotate))
+
+func calculate_points(change_this_frame: Vector2):
+	var multiplier : float = 1
+	var heightFactor : float = min(1, pow((1 / (500 / height)),2))
+	multiplier = lerp(1, 5, heightFactor)
+	points += (change_this_frame.x * multiplier) * 0.01
+	height_multiplier = multiplier

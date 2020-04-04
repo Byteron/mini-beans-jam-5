@@ -18,7 +18,7 @@ friction = 120.0
 upgrades = [ ExtResource( 7 ) ]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 67, 519 )
+position = Vector2( 66.2649, 519 )
 
 [node name="Launcher" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 396 )
