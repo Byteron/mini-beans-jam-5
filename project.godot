@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Obstacle",
 "class": "Ground",
 "language": "GDScript",
-"path": "res://source/core/obstacles/Floor.gd"
+"path": "res://source/core/obstacles/Ground.gd"
 }, {
 "base": "CanvasLayer",
 "class": "HUD",

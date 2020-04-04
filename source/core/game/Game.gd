@@ -12,7 +12,7 @@ export(Array, Resource) var upgrades := []
 
 onready var launcher := $Launcher as Launcher
 onready var player := $Player as Player
-onready var ground := $Floor as Area2D
+onready var ground := $Ground as Area2D
 onready var slider := $Slider as Node2D
 onready var camera := $Slider/Camera as Camera2D
 onready var spawner := $Slider/Spawner as Spawner
