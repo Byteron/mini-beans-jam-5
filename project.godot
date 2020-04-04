@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://source/core/player/Player.gd"
+}, {
 "base": "Node",
 "class": "SceneLoader",
 "language": "GDScript",
 "path": "res://addons/scene_manager/source/SceneLoader.gd"
 } ]
 _global_script_class_icons={
+"Player": "",
 "SceneLoader": ""
 }
 
