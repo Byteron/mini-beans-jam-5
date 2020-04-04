@@ -22,15 +22,21 @@ onready var coin_boost_label := $Panel/VBoxContainer/Details/VBoxContainer/CoinB
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("ui_up"):
-		tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin + 300, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
+		open()
 	if event.is_action_released("ui_down"):
-		tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
+		close()
 
 func _ready() -> void:
 	origin = panel.rect_position.x
 	_load_shop()
+
+func open() -> void:
+	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.start()
+
+func close() -> void:
+	tween.interpolate_property(panel, "rect_position:x", panel.rect_position.x, origin + 300, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.start()
 
 func _load_shop() -> void:
 	for upgrade in Global.upgrades:
