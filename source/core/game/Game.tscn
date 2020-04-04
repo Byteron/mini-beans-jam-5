@@ -12,7 +12,7 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 gravity = 1000
-draw_force = 100
+draw_force = 1000
 friction = 120.0
 upgrades = [ ExtResource( 7 ) ]
 

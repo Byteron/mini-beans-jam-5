@@ -7,6 +7,7 @@ onready var friction_label := $Upgrades/Friction
 
 onready var current_speed_label := $CurrentValues/CurrentSpeed
 onready var current_height_label := $CurrentValues/CurrentHeight
+onready var height_multiplier_label := $CurrentValues/HeightMultiplier
 onready var points_this_run_label := $CurrentValues/PointsThisRun
 
 func update_stats(gravity: int, draw_force: int, friction: float, upgrades: Array) -> void:
@@ -23,7 +24,8 @@ func update_stats(gravity: int, draw_force: int, friction: float, upgrades: Arra
 	draw_force_label.text = "Draw Force: %d (%d @ %d%%)" % [draw_force * draw_force_mod, draw_force, draw_force_mod * 100]
 	friction_label.text = "Friction: %f (%f @ %d%%)" % [friction * friction_mod, friction, friction_mod * 100]
 
-func update_current_values(speed: int, height: int, points: int):
+func update_current_values(speed: int, height: int, height_multiplier: float, points: int):
 	current_speed_label.text = "Speed: %d" % [speed]
 	current_height_label.text = "Height: %d" % [height]
+	height_multiplier_label.text = "Height Multiplier: %f" % [height_multiplier]
 	points_this_run_label.text = "Points: %d" % [points]
