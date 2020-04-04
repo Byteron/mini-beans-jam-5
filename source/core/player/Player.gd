@@ -37,6 +37,9 @@ func reset_force() -> void:
 
 func reset_velocity() -> void:
 	velocity = Vector2(0, 0)
+	
+func stop_falling():
+	velocity.y = min(velocity.y, 0)
 
 func calculate_rotation(speed: float):
 	var speedFactor = min(1, pow((1 / (500 / speed)),2))
