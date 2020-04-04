@@ -73,5 +73,6 @@ centered = false
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
+layer = 101
 [connection signal="launched" from="Launcher" to="." method="_on_Launcher_launched"]
 [connection signal="upgrade_bought" from="Shop" to="." method="_on_Shop_upgrade_bought"]
