@@ -25,9 +25,8 @@ __meta__ = {
 }
 
 [node name="Header" type="Label" parent="Panel/VBoxContainer"]
-margin_top = -1.0
 margin_right = 300.0
-margin_bottom = 49.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 text = "Shop"
 align = 1
