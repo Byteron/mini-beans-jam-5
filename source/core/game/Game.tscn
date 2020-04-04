@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://source/core/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/core/game/Game.gd" type="Script" id=2]
 [ext_resource path="res://source/core/launcher/Launcher.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/core/obstacles/Floor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/WaveMiddleground.png" type="Texture" id=5]
 [ext_resource path="res://source/core/spawner/Spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/upgrades/test_upgrade.tres" type="Resource" id=7]
 [ext_resource path="res://source/core/game/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://source/core/obstacles/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/WaveForeground.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/WaveBackground.png" type="Texture" id=11]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -30,7 +32,9 @@ target = NodePath("../Player")
 position = Vector2( 512, 600 )
 
 [node name="Camera" type="Camera2D" parent="Slider"]
+position = Vector2( -27.3982, -54.2384 )
 current = true
+limit_bottom = 650
 smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_top = 0.0
@@ -43,100 +47,29 @@ scenes = [ ExtResource( 9 ) ]
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0, 580 )
+position = Vector2( 0, 470 )
+motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0.6, 540 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 64, 0 )
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 580 )
+motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 5 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 10 )
 centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 65.1605, 0.857391 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 129.464, 1.71475 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 194.624, 1.71475 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 259.785, 2.57211 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 324.945, 5.14426 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 389.248, -1.71472 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite10" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 454.409, 6.00165 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite11" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 522.999, 0.857391 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite12" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 590.731, 5.14426 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite13" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 656.749, 1.71478 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite14" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 718.48, 7.7164 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite15" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 782.783, 5.14426 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
-
-[node name="Sprite16" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 839.37, 6.00165 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 128, 0 )
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 [connection signal="launched" from="Launcher" to="." method="_on_Launcher_launched"]

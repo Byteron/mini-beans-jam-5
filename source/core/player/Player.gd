@@ -37,7 +37,7 @@ func reset_force() -> void:
 
 func reset_velocity() -> void:
 	velocity = Vector2(0, 0)
-	
+
 func stop_falling():
 	velocity.y = min(velocity.y, 0)
 
