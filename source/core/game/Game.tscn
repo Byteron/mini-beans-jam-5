@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://source/core/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/core/game/Game.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://source/core/spawner/Spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/upgrades/test_upgrade.tres" type="Resource" id=7]
 [ext_resource path="res://source/core/game/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://source/core/obstacles/Coin.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -37,7 +38,7 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="Spawner" parent="Slider" instance=ExtResource( 6 )]
-scenes = [  ]
+scenes = [ ExtResource( 9 ) ]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

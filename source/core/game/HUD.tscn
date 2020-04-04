@@ -26,6 +26,11 @@ margin_top = 36.0
 margin_right = 40.0
 margin_bottom = 50.0
 
+[node name="CoinBoost" type="Label" parent="Upgrades"]
+margin_top = 54.0
+margin_right = 40.0
+margin_bottom = 68.0
+
 [node name="CurrentValues" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0

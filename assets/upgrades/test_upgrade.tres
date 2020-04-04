@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 draw_force = 0.0
 gravity = 0.0
 friction = 0.0
+coin_boost = 400

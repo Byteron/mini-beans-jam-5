@@ -5,6 +5,8 @@ var launched := false
 export var gravity := 0
 export var draw_force := 0
 export var friction := 0.0
+export var coin_boost := 0
+
 
 export(Array, Resource) var upgrades := []
 
@@ -18,7 +20,7 @@ onready var hud := $HUD as HUD
 
 func _ready() -> void:
 	_apply_stats()
-	hud.update_stats(gravity, draw_force, friction, upgrades)
+	hud.update_stats(gravity, draw_force, friction, coin_boost, upgrades)
 
 func _physics_process(delta: float) -> void:
 	ground.global_position.x = player.global_position.x
@@ -32,15 +34,18 @@ func _apply_stats() -> void:
 	var gravity_mod := 1.0
 	var draw_force_mod := 1.0
 	var friction_mod := 1.0
+	var coin_boost_bonus := 0
 
 	for upgrade in upgrades:
 		gravity_mod += upgrade.gravity
 		draw_force_mod += upgrade.draw_force
 		friction_mod += upgrade.friction
+		coin_boost_bonus += upgrade.coin_boost
 
 	player.gravity = gravity * gravity_mod
 	launcher.force = draw_force * draw_force_mod
 	player.friction = friction * friction_mod
+	Global.coin_boost = coin_boost + coin_boost_bonus
 
 func update_current_values():
 	hud.update_current_values(player.speed, player.height, player.points)
