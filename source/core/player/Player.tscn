@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/sprites/Coin.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/PlayerSoul.png" type="Texture" id=1]
 [ext_resource path="res://source/core/player/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 45.7514, 52.9588 )
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 2 )
