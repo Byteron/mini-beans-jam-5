@@ -27,7 +27,7 @@ __meta__ = {
 margin_right = 300.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
-text = "Shop"
+text = "CHARON'S UPGRADE SHOPPE"
 align = 1
 valign = 1
 
@@ -36,7 +36,7 @@ margin_top = 54.0
 margin_right = 300.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 0, 50 )
-text = "Shop"
+text = "3500 Favour"
 align = 1
 valign = 1
 
@@ -60,7 +60,6 @@ columns = 3
 margin_top = 317.0
 margin_right = 300.0
 margin_bottom = 522.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Name" type="Label" parent="Panel/VBoxContainer/Details"]
@@ -80,44 +79,15 @@ text = "Cost"
 align = 1
 valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Details"]
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Details"]
 margin_top = 88.0
 margin_right = 300.0
-margin_bottom = 156.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Gravity" type="Label" parent="Panel/VBoxContainer/Details/VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 14.0
-text = "STATT LEIBILZ"
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 40 )
+text = "Text"
 align = 1
 valign = 1
-
-[node name="DrawForce" type="Label" parent="Panel/VBoxContainer/Details/VBoxContainer"]
-margin_top = 18.0
-margin_right = 300.0
-margin_bottom = 32.0
-text = "STATT LEIBILZ"
-align = 1
-valign = 1
-
-[node name="Friction" type="Label" parent="Panel/VBoxContainer/Details/VBoxContainer"]
-margin_top = 36.0
-margin_right = 300.0
-margin_bottom = 50.0
-text = "STATT LEIBILZ"
-align = 1
-valign = 1
-
-[node name="CoinBoost" type="Label" parent="Panel/VBoxContainer/Details/VBoxContainer"]
-margin_top = 54.0
-margin_right = 300.0
-margin_bottom = 68.0
-text = "STATT LEIBILZ"
-align = 1
-valign = 1
+autowrap = true
 
 [node name="Notification" type="Label" parent="Panel/VBoxContainer"]
 margin_top = 526.0

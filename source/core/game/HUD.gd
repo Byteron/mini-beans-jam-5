@@ -9,6 +9,8 @@ onready var coin_boost_label := $Upgrades/CoinBoost
 onready var current_speed_label := $CurrentValues/CurrentSpeed
 onready var current_height_label := $CurrentValues/CurrentHeight
 onready var height_multiplier_label := $CurrentValues/HeightMultiplier
+onready var current_distance_label := $CurrentValues/CurrentDistance
+onready var distance_multiplier_label := $CurrentValues/DistanceMultiplier
 onready var points_this_run_label := $CurrentValues/PointsThisRun
 
 func update_stats(gravity: int, draw_force: int, friction: float, coin_boost: int, upgrades: Array) -> void:
@@ -28,8 +30,10 @@ func update_stats(gravity: int, draw_force: int, friction: float, coin_boost: in
 	friction_label.text = "Friction: %f (%f @ %d%%)" % [friction * friction_mod, friction, friction_mod * 100]
 	coin_boost_label.text = "Coin Boost: %d (%d + %d)" % [coin_boost * coin_boost_bonus, coin_boost, coin_boost_bonus]
 
-func update_current_values(speed: int, height: int, height_multiplier: float, points: int):
+func update_current_values(speed: int, height: int, height_multiplier: float, distance: float, distance_multiplier: float, points: int):
 	current_speed_label.text = "Speed: %d" % [speed]
 	current_height_label.text = "Height: %d" % [height]
 	height_multiplier_label.text = "Height Multiplier: %f" % [height_multiplier]
+	current_distance_label.text = "Distance: %d" % [distance]
+	distance_multiplier_label.text = "Distance Multiplier: %f" % [distance_multiplier]
 	points_this_run_label.text = "Points: %d" % [points]

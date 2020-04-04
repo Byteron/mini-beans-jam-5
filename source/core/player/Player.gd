@@ -8,8 +8,10 @@ var gravity := 100 #vertical decay
 var friction = 100 #horizontal decay
 var speed = 0
 var height = 0
+var distance = 0
 var points = 0
 var height_multiplier = 0
+var distance_multiplier = 0
 
 export var disabled = true
 
@@ -24,9 +26,10 @@ func _physics_process(delta: float) -> void:
 	var change_this_frame : Vector2 = (velocity + force) * delta
 	global_position += change_this_frame
 	speed = change_this_frame.x
+	distance += speed * 0.01
 	calculate_rotation(speed)
-	#calculate_camera_zoom(speed)
-	height = 55 + (global_position.y * -0.1)
+	calculate_camera_zoom(speed)
+	height = 75 + (global_position.y * -0.1)
 	calculate_points(change_this_frame)
 
 func apply_impact(impact: Vector2) -> void:
@@ -54,14 +57,14 @@ func calculate_rotation(speed: float):
 func calculate_camera_zoom(speed: float):
 	if speed <= 0:
 		return
-	var speedFactor: float = min(1, (1 / (100 / speed)))
-	var zoom: float = lerp(1, 3, speedFactor)
-	camera.zoom = Vector2(zoom, zoom)
-	#camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
+	var speedFactor: float = min(1, (1 / (150 / speed)))
+	var zoom: float = lerp(1, 5, speedFactor)
+#	camera.zoom = Vector2(zoom, zoom)
+	camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
 
 func calculate_points(change_this_frame: Vector2):
-	var multiplier : float = 1
 	var heightFactor : float = min(1, pow((1 / (500 / height)),2))
-	multiplier = lerp(1, 5, heightFactor)
-	points += (change_this_frame.x * multiplier) * 0.01
-	height_multiplier = multiplier
+	height_multiplier = lerp(1, 5, heightFactor)
+	var distanceFactor : float = min(1, pow((1 / (5000 / distance)),1.2))
+	distance_multiplier = lerp(1, 100, distanceFactor)
+	points += (change_this_frame.x * height_multiplier * distance_multiplier) * 0.01

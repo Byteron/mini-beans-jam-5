@@ -59,7 +59,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PointsThisRun" type="Label" parent="CurrentValues"]
+[node name="CurrentDistance" type="Label" parent="CurrentValues"]
 margin_top = 54.0
 margin_right = 40.0
 margin_bottom = 68.0
+
+[node name="DistanceMultiplier" type="Label" parent="CurrentValues"]
+margin_top = 72.0
+margin_right = 40.0
+margin_bottom = 86.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsThisRun" type="Label" parent="CurrentValues"]
+margin_top = 90.0
+margin_right = 40.0
+margin_bottom = 104.0

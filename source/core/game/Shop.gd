@@ -18,17 +18,8 @@ onready var points_label := $Panel/VBoxContainer/Points
 
 onready var name_label := $Panel/VBoxContainer/Details/Name
 onready var cost_label := $Panel/VBoxContainer/Details/Cost
-onready var gravity_label := $Panel/VBoxContainer/Details/VBoxContainer/Gravity
-onready var draw_force_label := $Panel/VBoxContainer/Details/VBoxContainer/DrawForce
-onready var friction_label := $Panel/VBoxContainer/Details/VBoxContainer/Friction
-onready var coin_boost_label := $Panel/VBoxContainer/Details/VBoxContainer/CoinBoost
+onready var text_label := $Panel/VBoxContainer/Details/Text
 onready var notification_label := $Panel/VBoxContainer/Notification
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_released("ui_up"):
-		open()
-	if event.is_action_released("ui_down"):
-		close()
 
 func _ready() -> void:
 	origin = panel.rect_position.x
@@ -61,18 +52,12 @@ func _load_shop() -> void:
 func _clear_details() -> void:
 	name_label.text = ""
 	cost_label.text = ""
-	gravity_label.text = ""
-	draw_force_label.text = ""
-	friction_label.text = ""
-	coin_boost_label.text = ""
+	text_label.text = ""
 
 func _on_ShopPutton_pressed(button: Button, upgrade: Upgrade) -> void:
 	name_label.text = upgrade.name
 	cost_label.text = "Cost: %d" % upgrade.cost
-	gravity_label.text = "Gravity: %d%%" % (upgrade.gravity * 100)
-	draw_force_label.text = "Draw Force: %d%%" % (upgrade.draw_force * 100)
-	friction_label.text = "Friction: %d%%" % (upgrade.friction * 100)
-	coin_boost_label.text = "Coin Boost: %d" % upgrade.coin_boost
+	text_label.text = upgrade.text
 
 	current_button = button
 	current_upgrade = upgrade
