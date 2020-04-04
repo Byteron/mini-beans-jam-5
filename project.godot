@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "SceneLoader",
+"language": "GDScript",
+"path": "res://addons/scene_manager/source/SceneLoader.gd"
+} ]
 _global_script_class_icons={
-
+"SceneLoader": ""
 }
 
 [application]
@@ -18,6 +23,15 @@ _global_script_class_icons={
 config/name="Mini Beans Jam 5"
 run/main_scene="res://source/menu/TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Scene="*res://addons/scene_manager/source/Scene.tscn"
+Global="*res://source/global/Global.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "scene_manager" )
 
 [rendering]
 
