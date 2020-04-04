@@ -53,3 +53,8 @@ func update_current_values():
 func _on_Launcher_launched() -> void:
 	launched = true
 	spawner.start()
+
+func _on_Shop_upgrade_bought(upgrade: Upgrade) -> void:
+	upgrades.append(upgrade)
+	_apply_stats()
+	hud.update_stats(gravity, draw_force, friction, coin_boost, upgrades)

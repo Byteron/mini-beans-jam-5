@@ -23,7 +23,6 @@ upgrades = [ ExtResource( 7 ) ]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 455.458, 366.76 )
-disabled = true
 
 [node name="Launcher" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 396 )
@@ -75,3 +74,4 @@ centered = false
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
 [connection signal="launched" from="Launcher" to="." method="_on_Launcher_launched"]
+[connection signal="upgrade_bought" from="Shop" to="." method="_on_Shop_upgrade_bought"]
