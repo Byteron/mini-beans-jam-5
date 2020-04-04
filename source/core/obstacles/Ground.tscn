@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://source/core/obstacles/Floor.gd" type="Script" id=1]
+[ext_resource path="res://source/core/obstacles/Ground.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 154.638, 19.9552 )
 
-[node name="Floor" type="Area2D"]
+[node name="Ground" type="Area2D"]
 position = Vector2( 22.8, 600 )
 script = ExtResource( 1 )
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://source/core/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/core/game/Game.gd" type="Script" id=2]
 [ext_resource path="res://source/core/launcher/Launcher.tscn" type="PackedScene" id=3]
-[ext_resource path="res://source/core/obstacles/Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://source/core/obstacles/Ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/WaveMiddleground.png" type="Texture" id=5]
 [ext_resource path="res://source/core/spawner/Spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/upgrades/test_upgrade.tres" type="Resource" id=7]
@@ -20,14 +20,13 @@ friction = 120.0
 upgrades = [ ExtResource( 7 ) ]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 67.6253, 495.874 )
+position = Vector2( 66.2649, 519 )
 
 [node name="Launcher" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 396 )
 target = NodePath("../Player")
 
-[node name="Floor" parent="." instance=ExtResource( 4 )]
-position = Vector2( 30, 680 )
+[node name="Ground" parent="." instance=ExtResource( 4 )]
 
 [node name="Slider" type="Node2D" parent="."]
 position = Vector2( 512, 600 )
@@ -36,6 +35,7 @@ position = Vector2( 512, 600 )
 position = Vector2( -27.3982, -54.2384 )
 current = true
 limit_bottom = 650
+smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
@@ -47,7 +47,7 @@ scenes = [ ExtResource( 9 ) ]
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0, 470 )
+position = Vector2( 0, 580 )
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 1024, 0 )
 
@@ -56,22 +56,18 @@ texture = ExtResource( 11 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0.6, 540 )
-motion_scale = Vector2( 0.7, 1 )
+position = Vector2( 0, 580 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource( 5 )
 centered = false
 
-[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
-layer = 100
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxForeground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 580 )
 motion_mirroring = Vector2( 1024, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxForeground/ParallaxLayer3"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 texture = ExtResource( 10 )
 centered = false
 
