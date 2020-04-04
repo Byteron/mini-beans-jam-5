@@ -28,4 +28,11 @@ antialiased = true
 texture = ExtResource( 2 )
 
 [node name="AimArrow" type="Sprite" parent="."]
+position = Vector2( 0, -75 )
+rotation = -0.785398
 texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -15.5 )
+
+[node name="Pointer" type="Node2D" parent="AimArrow"]
+position = Vector2( 70.4633, -0.463303 )

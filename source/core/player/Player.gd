@@ -45,14 +45,19 @@ func stop_falling():
 	velocity.y = min(velocity.y, 0)
 
 func calculate_rotation(speed: float):
+	if speed <= 0:
+		return
 	var speedFactor = min(1, pow((1 / (500 / speed)),2))
 	var degreesToRotate = lerp(0, 720, speedFactor)
 	rotate(deg2rad(degreesToRotate))
 
 func calculate_camera_zoom(speed: float):
-	var speedFactor = min(1, pow((1 / (70 / speed)),2))
-	var zoom = lerp(1, 10, speedFactor)
-	camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
+	if speed <= 0:
+		return
+	var speedFactor: float = min(1, (1 / (100 / speed)))
+	var zoom: float = lerp(1, 3, speedFactor)
+	camera.zoom = Vector2(zoom, zoom)
+	#camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
 
 func calculate_points(change_this_frame: Vector2):
 	var multiplier : float = 1
