@@ -133,5 +133,7 @@ margin_top = 550.0
 margin_right = 300.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 0, 50 )
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Buy"
 [connection signal="pressed" from="Panel/VBoxContainer/Buy" to="." method="_on_Buy_pressed"]

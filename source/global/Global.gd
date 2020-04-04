@@ -2,9 +2,10 @@ extends Node
 
 var coin_boost := 0
 
-var points := 0
+var points := 20000
 
 var upgrades := []
+var bought_upgrades := []
 
 func _ready() -> void:
 	Scene.register_scene("TitleScreen", "res://source/menu/TitleScreen.tscn")

@@ -1,9 +1,11 @@
 [gd_scene format=2]
 
-[node name="Button" type="Button"]
+[node name="ShopButton" type="Button"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
+focus_mode = 0
+enabled_focus_mode = 0
 clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false

@@ -48,10 +48,15 @@ func update_points() -> void:
 func _load_shop() -> void:
 	for upgrade in Global.upgrades:
 		var button = ShopButton.instance()
+		buttons.add_child(button)
 		button.connect("pressed", self, "_on_ShopPutton_pressed", [button, upgrade])
 		button.text = upgrade.name
-		buttons.add_child(button)
+
+		if Global.bought_upgrades.has(upgrade):
+			button.disabled = true
+
 	update_points()
+	_clear_details()
 
 func _clear_details() -> void:
 	name_label.text = ""
