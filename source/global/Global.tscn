@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://source/global/Global.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/willow.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/coin.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/159408__noirenex__life-lost-game-over.wav" type="AudioStream" id=4]
 
 [node name="Global" type="Node"]
 script = ExtResource( 1 )
@@ -13,3 +14,6 @@ volume_db = -9.087
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="EnemySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

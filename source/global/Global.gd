@@ -11,6 +11,7 @@ var bought_upgrade_names := []
 
 onready var bgm := $BGM as AudioStreamPlayer
 onready var coinSfx := $CoinSound as AudioStreamPlayer
+onready var enemySfx := $EnemySound as AudioStreamPlayer
 
 func start_music():
 	if !bgm.playing:
@@ -18,6 +19,9 @@ func start_music():
 
 func play_coin_sound():
 	coinSfx.play()
+
+func play_enemy_sound():
+	enemySfx.play()
 
 func _ready() -> void:
 	Scene.register_scene("TitleScreen", "res://source/menu/TitleScreen.tscn")
