@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/PlayerSoul.png" type="Texture" id=1]
 [ext_resource path="res://source/core/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/hui10.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/hui6.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/hui8.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/hui12.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.7514, 52.9588 )
@@ -25,7 +29,23 @@ offset = Vector2( 300, 0 )
 current = true
 limit_bottom = 800
 limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 7.0
 drag_margin_left = 0.1
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
+
+[node name="LaunchSounds" type="Node" parent="."]
+
+[node name="Launch1" type="AudioStreamPlayer" parent="LaunchSounds"]
+stream = ExtResource( 4 )
+
+[node name="Launch2" type="AudioStreamPlayer" parent="LaunchSounds"]
+stream = ExtResource( 5 )
+
+[node name="Launch3" type="AudioStreamPlayer" parent="LaunchSounds"]
+stream = ExtResource( 3 )
+
+[node name="Launch4" type="AudioStreamPlayer" parent="LaunchSounds"]
+stream = ExtResource( 6 )

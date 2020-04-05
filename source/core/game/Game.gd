@@ -51,10 +51,11 @@ func _apply_stats() -> void:
 	Global.coin_boost = coin_boost + coin_boost_bonus
 
 func update_current_values():
-	hud.update_current_values(player.speed, player.height, player.height_multiplier, player.distance, player.distance_multiplier, player.points)
+	hud.update_current_values(player.speed, player.height, player.height_multiplier, player.height_friction_multiplier, player.distance, player.distance_multiplier, player.points)
 
 func _on_Launcher_launched() -> void:
 	launched = true
+	player.play_launch_sound()
 	spawner.start()
 	shop.close()
 

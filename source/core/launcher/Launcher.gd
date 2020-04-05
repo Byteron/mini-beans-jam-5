@@ -20,7 +20,8 @@ onready var pointer := $AimArrow/Pointer as Node2D
 var shoot = false
 var direction := Vector2()
 var charge_direction = Vector2(-0.3, 0.3)
-var max_charge := 0
+var max_charge: float = 0
+var current_charge: float = 0
 
 func _ready() -> void:
 	_target = get_node(target)
@@ -60,8 +61,10 @@ func _process(delta: float) -> void:
 			arrow.rotate(delta*2)
 
 func charge(delta: float):
-		var current_charge = _target.global_position.distance_to(global_position)
+		current_charge += delta * 1000
+		print("current charge: %f" % [current_charge])
 		if (current_charge >= max_charge):
+			print("STOPPED")
 			return
 		charge_direction = (global_position + Vector2(0,-75)).direction_to(pointer.global_position) * -1
 		var charge_velocity = charge_direction * 350
