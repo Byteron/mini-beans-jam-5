@@ -20,4 +20,4 @@ func _on_SpawnTimer_timeout(player_velocity: Vector2) -> void:
 		scene = enemy
 	var instance = scene.instance() as Obstacle
 	get_tree().current_scene.add_child(instance)
-	instance.global_position = global_position + Vector2(rand_range(-1.2, 1.2) * player_velocity.x, rand_range(0, 1.7) * player_velocity.y)
+	instance.global_position = global_position + Vector2(rand_range(0, 2) * player_velocity.x, rand_range(-0.7, 2.5) * player_velocity.y)

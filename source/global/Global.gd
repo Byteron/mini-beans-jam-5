@@ -3,45 +3,25 @@ extends Node
 var coin_boost := 0
 var enemy_damage := 0
 
-var points := 224312145243523
+var points := 0
 
 var upgrades := []
 var bought_upgrades := []
 var bought_upgrade_names := []
 
 onready var bgm := $BGM as AudioStreamPlayer
+onready var coinSfx := $CoinSound as AudioStreamPlayer
 
 func start_music():
 	if !bgm.playing:
 		bgm.play()
 
+func play_coin_sound():
+	coinSfx.play()
+
 func _ready() -> void:
 	Scene.register_scene("TitleScreen", "res://source/menu/TitleScreen.tscn")
 	Scene.register_scene("Game", "res://source/core/game/Game.tscn")
-
-	_create_upgrade({
-		"name": "Ferryman's Obol I",
-		"cost": 1000,
-		"coin_boost": 150,
-		"text": "Provides a minor boost when collecting a coin.\n\nIt's common practice to place a coin in a dead person's mouth to ensure smooth passage across Styx.",
-		"texture": load("res://assets/sprites/fo1.png")
-	})
-
-	_create_upgrade({
-		"name": "Ferryman's Obol II",
-		"cost": 5000,
-		"coin_boost": 200,
-		"text": "Provides a moderate boost when collecting a coin.\n\nThe implication is clear: if you don't pay Charon, he will simply toss your soul into Styx.",
-		"required_upgrade": "Ferryman's Obol I"
-	})
-	
-	_create_upgrade({
-		"name": "Ferryman's Obol III",
-		"cost": 20000,
-		"coin_boost": 400,
-		"text": "Provides a significant boost when collecting a coin.\n\nThere are some lessons to be learned here about rich people and their souls' worth, but we'll leave the philosophy to another deity.",
-		"required_upgrade": "Ferryman's Obol II"
-	})
 
 	_create_upgrade({
 		"name": "A Soul's Weight I",
@@ -80,13 +60,39 @@ func _ready() -> void:
 		"text": "Reduces the effect of air resistance by a total of 50%.\n\nIs there even air down here? And why would it affect an incorporeal being?",
 		"required_upgrade": "Asphodynamics I"
 	})
-	
+
 	_create_upgrade({
 		"name": "Asphodynamics III",
 		"cost": 8000,
 		"friction": -0.4,
 		"text": "Reduces the effect of air resistance by a total of 90%.\n\nCharon briefly considers adding a spoiler to all souls he launches, but decides against it due to material costs.",
 		"required_upgrade": "Asphodynamics II"
+	})
+
+	_create_upgrade({
+		"name": "Ferryman's Obol I",
+		"cost": 1000,
+		"coin_boost": 150,
+		"text": "Provides a minor boost when collecting a coin.\n\nIt's common practice to place a coin in a dead person's mouth to ensure smooth passage across Styx.",
+		"texture": load("res://assets/sprites/CoinUpgrade1.png")
+	})
+
+	_create_upgrade({
+		"name": "Ferryman's Obol II",
+		"cost": 5000,
+		"coin_boost": 200,
+		"text": "Provides a moderate boost when collecting a coin.\n\nThe implication is clear: if you don't pay Charon, he will simply toss your soul into Styx.",
+		"required_upgrade": "Ferryman's Obol I",
+		"texture": load("res://assets/sprites/CoinUpgrade2.png")
+	})
+	
+	_create_upgrade({
+		"name": "Ferryman's Obol III",
+		"cost": 20000,
+		"coin_boost": 400,
+		"text": "Provides a significant boost when collecting a coin.\n\nThere are some lessons to be learned here about rich people and their souls' worth, but we'll leave the philosophy to another deity.",
+		"required_upgrade": "Ferryman's Obol II",
+		"texture": load("res://assets/sprites/CoinUpgrade3.png")
 	})
 
 	_create_upgrade({

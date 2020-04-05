@@ -79,7 +79,7 @@ func calculate_points(change_this_frame: Vector2):
 	height_multiplier = lerp(1, 10, heightFactor)
 	var distanceFactor : float = min(1, pow((1 / (5000 / distance)),1.2))
 	distance_multiplier = lerp(1, 100, distanceFactor)
-	points += (change_this_frame.x * height_multiplier * distance_multiplier) * 0.01
+	points += (change_this_frame.x * height_multiplier * distance_multiplier) * 0.005
 
 func play_launch_sound():
 	sounds[randi() % 4].play()

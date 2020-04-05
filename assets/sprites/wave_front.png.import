@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaveBackground.png-24be12d50331ac5791714e7968e44f6a.stex"
+path="res://.import/wave_front.png-0cf02727538af63395421d25f1a207cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/WaveBackground.png"
-dest_files=[ "res://.import/WaveBackground.png-24be12d50331ac5791714e7968e44f6a.stex" ]
+source_file="res://assets/sprites/wave_front.png"
+dest_files=[ "res://.import/wave_front.png-0cf02727538af63395421d25f1a207cc.stex" ]
 
 [params]
 

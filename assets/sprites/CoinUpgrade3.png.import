@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaveForeground.png-3021be14eb2707a6b90bc49a9c3137e8.stex"
+path="res://.import/CoinUpgrade3.png-356e1118a1e0536a3e1a56de334c6d84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/WaveForeground.png"
-dest_files=[ "res://.import/WaveForeground.png-3021be14eb2707a6b90bc49a9c3137e8.stex" ]
+source_file="res://assets/sprites/CoinUpgrade3.png"
+dest_files=[ "res://.import/CoinUpgrade3.png-356e1118a1e0536a3e1a56de334c6d84.stex" ]
 
 [params]
 

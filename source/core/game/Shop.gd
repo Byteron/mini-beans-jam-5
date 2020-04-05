@@ -36,7 +36,7 @@ func close() -> void:
 	tween.start()
 
 func update_points() -> void:
-	points_label.text = "Points: %d" % Global.points
+	points_label.text = "%d Favour" % Global.points
 
 func _load_shop() -> void:
 	for upgrade in Global.upgrades:

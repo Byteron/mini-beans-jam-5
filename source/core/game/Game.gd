@@ -21,7 +21,6 @@ onready var timer := $SpawnTimer as Timer
 func _ready() -> void:
 	Global.start_music()
 	_apply_stats()
-	hud.update_stats(gravity, draw_force, friction, coin_boost, enemy_damage, Global.bought_upgrades)
 	shop.update_points()
 	shop.open()
 	print(Global.upgrades)
@@ -58,7 +57,7 @@ func _apply_stats() -> void:
 	Global.enemy_damage = enemy_damage * enemy_damage_mod
 
 func update_current_values():
-	hud.update_current_values(player.speed, player.height, player.height_multiplier, player.height_friction_multiplier, player.distance, player.distance_multiplier, player.points)
+	hud.update_current_values(player.speed, player.height, player.distance, player.points)
 
 func _on_Launcher_launched() -> void:
 	launched = true
@@ -70,8 +69,7 @@ func _on_Shop_upgrade_bought(upgrade: Upgrade) -> void:
 	Global.bought_upgrades.append(upgrade)
 	Global.bought_upgrade_names.append(upgrade.name)
 	_apply_stats()
-	hud.update_stats(gravity, draw_force, friction, coin_boost, enemy_damage, Global.bought_upgrades)
 
 func _on_SpawnTimer_timeout():
 	spawner._on_SpawnTimer_timeout(player.velocity)
-	timer.start(rand_range(0.04, 0.2))
+	timer.start(rand_range(0.02, 0.1))
