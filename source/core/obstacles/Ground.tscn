@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sounds/water.wav" type="AudioStream" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 154.638, 19.9552 )
+extents = Vector2( 424.293, 19.9552 )
 
 [node name="Ground" type="Area2D"]
 position = Vector2( 22.8, 600 )

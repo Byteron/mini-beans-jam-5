@@ -33,7 +33,7 @@ position = Vector2( 293.539, 476.083 )
 target = NodePath("../Player")
 
 [node name="Ground" parent="." instance=ExtResource( 4 )]
-position = Vector2( 20, 770 )
+position = Vector2( 210.7, 823.314 )
 
 [node name="Slider" type="Node2D" parent="."]
 position = Vector2( 221.619, 669.809 )

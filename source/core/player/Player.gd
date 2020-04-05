@@ -75,10 +75,10 @@ func calculate_camera_zoom(speed: float):
 	camera.zoom = lerp(camera.zoom, Vector2(zoom, zoom), 0.1)
 
 func calculate_points(change_this_frame: Vector2):
-	var heightFactor : float = min(1, pow((1 / (1000 / height)),1.8))
-	height_multiplier = lerp(1, 10, heightFactor)
-	var distanceFactor : float = min(1, pow((1 / (5000 / distance)),1.2))
-	distance_multiplier = lerp(1, 100, distanceFactor)
+	var heightFactor : float = min(1, pow((1 / (2000 / height)),1.7))
+	height_multiplier = lerp(1, 8, heightFactor)
+	var distanceFactor : float = min(1, pow((1 / (7500 / distance)),1.2))
+	distance_multiplier = lerp(1, 80, distanceFactor)
 	points += (change_this_frame.x * height_multiplier * distance_multiplier) * 0.005
 
 func play_launch_sound():
