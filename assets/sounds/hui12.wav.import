@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hui12.wav-d3a4ac9a98784802f22e9a5acb3e1cad.sample"
+
+[deps]
+
+source_file="res://assets/sounds/hui12.wav"
+dest_files=[ "res://.import/hui12.wav-d3a4ac9a98784802f22e9a5acb3e1cad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
