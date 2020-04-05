@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://source/core/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/core/game/Game.gd" type="Script" id=2]
@@ -12,12 +12,14 @@
 [ext_resource path="res://assets/sprites/WaveForeground.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/WaveBackground.png" type="Texture" id=11]
 [ext_resource path="res://source/core/game/Shop.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/core/obstacles/Gronk.tscn" type="PackedScene" id=13]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 gravity = 1000
 draw_force = 200
 friction = 300.0
+enemy_damage = 750
 max_charge = 1000
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -31,10 +33,12 @@ target = NodePath("../Player")
 position = Vector2( 20, 770 )
 
 [node name="Slider" type="Node2D" parent="."]
-position = Vector2( 512, 600 )
+position = Vector2( 440.08, 589.726 )
 
 [node name="Spawner" parent="Slider" instance=ExtResource( 6 )]
-scenes = [ ExtResource( 9 ) ]
+position = Vector2( 1181.74, -268.812 )
+coin = ExtResource( 9 )
+enemy = ExtResource( 13 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
@@ -83,5 +87,9 @@ layer = 5
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
 layer = 10
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.4
 [connection signal="launched" from="Launcher" to="." method="_on_Launcher_launched"]
 [connection signal="upgrade_bought" from="Shop" to="." method="_on_Shop_upgrade_bought"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

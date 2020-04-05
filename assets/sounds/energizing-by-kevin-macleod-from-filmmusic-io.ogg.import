@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/energizing-by-kevin-macleod-from-filmmusic-io.ogg-63992fc0cb7f2eca85fef7ef2b49959a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/energizing-by-kevin-macleod-from-filmmusic-io.ogg"
+dest_files=[ "res://.import/energizing-by-kevin-macleod-from-filmmusic-io.ogg-63992fc0cb7f2eca85fef7ef2b49959a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

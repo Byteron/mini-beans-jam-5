@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/PlayerSoul.png" type="Texture" id=1]
 
 [node name="ShopButton" type="Button"]
 margin_right = 80.0
@@ -10,3 +12,12 @@ clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 40, 40 )
+
+[node name="OwnedCheckmark" type="Sprite" parent="."]
+visible = false
+position = Vector2( 65.3014, 62.8866 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )

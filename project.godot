@@ -87,7 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Scene="*res://addons/scene_manager/source/Scene.tscn"
-Global="*res://source/global/Global.gd"
+Global="*res://source/global/Global.tscn"
 
 [editor_plugins]
 

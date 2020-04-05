@@ -2,7 +2,5 @@ extends Obstacle
 class_name Gronk
 
 func _player_entered(player: Player) -> void:
-	print("A: ", player.velocity)
-	player.velocity.y = -abs(player.velocity.y)
-	print("B: ", player.velocity)
+	player.apply_impact(Vector2(-Global.enemy_damage, Global.enemy_damage))
 	queue_free()

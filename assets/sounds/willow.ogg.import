@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/willow.ogg-cd374df2be895cb8c7e2a1452dac90e9.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/willow.ogg"
+dest_files=[ "res://.import/willow.ogg-cd374df2be895cb8c7e2a1452dac90e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

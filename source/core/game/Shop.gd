@@ -21,6 +21,8 @@ onready var cost_label := $Panel/VBoxContainer/Details/Cost
 onready var text_label := $Panel/VBoxContainer/Details/Text
 onready var notification_label := $Panel/VBoxContainer/Notification
 
+onready var buy_button := $Panel/VBoxContainer/Buy as Button
+
 func _ready() -> void:
 	origin = panel.rect_position.x
 	_load_shop()
@@ -41,10 +43,10 @@ func _load_shop() -> void:
 		var button = ShopButton.instance()
 		buttons.add_child(button)
 		button.connect("pressed", self, "_on_ShopPutton_pressed", [button, upgrade])
-		button.text = upgrade.name
-
-		if Global.bought_upgrades.has(upgrade):
-			button.disabled = true
+		if (upgrade.texture != null):
+			button.get_node("Sprite").texture = upgrade.texture
+		if (Global.bought_upgrades.has(upgrade)):
+			button.get_node("OwnedCheckmark").visible = true
 
 	update_points()
 	_clear_details()
@@ -61,6 +63,11 @@ func _on_ShopPutton_pressed(button: Button, upgrade: Upgrade) -> void:
 
 	current_button = button
 	current_upgrade = upgrade
+	
+	if (Global.bought_upgrades.has(upgrade) || (current_upgrade.required_upgrade != "" && !Global.bought_upgrade_names.has(current_upgrade.required_upgrade))):
+		buy_button.disabled = true
+	else:
+		buy_button.disabled = false
 
 func _on_Buy_pressed() -> void:
 	if not current_upgrade:
@@ -75,7 +82,7 @@ func _on_Buy_pressed() -> void:
 	emit_signal("upgrade_bought", current_upgrade)
 	notification_label.text = "%s bought" % current_upgrade.name
 	notification_label.modulate = Color("00FF00")
-	current_button.disabled = true
 	current_upgrade = null
+	current_button.get_node("OwnedCheckmark").visible = true
 	_clear_details()
 	update_points()

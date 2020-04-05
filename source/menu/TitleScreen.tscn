@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://source/menu/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/energizing-by-kevin-macleod-from-filmmusic-io.ogg" type="AudioStream" id=2]
 
 [node name="TitleScreen" type="Panel"]
 anchor_right = 1.0
@@ -13,6 +14,10 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -8.59412
+margin_top = 4.91095
+margin_right = -8.59412
+margin_bottom = 4.91095
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,5 +38,9 @@ margin_top = 24.0
 margin_right = 45.0
 margin_bottom = 44.0
 text = "QUIT"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

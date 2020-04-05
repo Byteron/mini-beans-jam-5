@@ -5,8 +5,3 @@
 [node name="Spawner" type="Node2D"]
 position = Vector2( 572.125, -56.4759 )
 script = ExtResource( 1 )
-
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.4
-one_shot = true
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
